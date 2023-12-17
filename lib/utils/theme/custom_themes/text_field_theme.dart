@@ -29,7 +29,6 @@ class TTextFormFieldTheme {
         borderSide: const BorderSide(width: 1, color: Colors.red)),
   );
 
-
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
