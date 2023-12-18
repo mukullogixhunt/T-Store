@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 import '../../../../utils/constants/colors.dart';
 
@@ -15,6 +16,7 @@ class TCartCounterIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Stack(
       children: [
         IconButton(
@@ -26,7 +28,7 @@ class TCartCounterIcon extends StatelessWidget {
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-              color: TColors.black,
+              color: dark ? TColors.white : TColors.black,
               borderRadius: BorderRadius.circular(100),
             ),
             child: Center(
@@ -34,7 +36,7 @@ class TCartCounterIcon extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
-                        .apply(color: TColors.white, fontSizeFactor: 0.8))),
+                        .apply(color: dark ? TColors.black : TColors.white, fontSizeFactor: 0.8))),
           ),
         ),
       ],

@@ -5,7 +5,6 @@ import 'package:t_store/common/widgets/custom_shapes/containers/rounded_containe
 import 'package:t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_price_text.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/enums.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -78,7 +77,7 @@ class TProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TProductTitleText(title: 'Green Nike Air Shoes',smallSize: true),
+                  TProductTitleText(title: 'Green Nike Air Shoes sd sd sd ad sd',smallSize: true),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleTextWithVerifiedIcon(title: 'Nike')
                 ],),
