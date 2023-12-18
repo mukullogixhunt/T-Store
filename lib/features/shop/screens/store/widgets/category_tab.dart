@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_card_vertical.dart';
@@ -14,7 +12,7 @@ class TCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ListView(
+    return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       children: [
@@ -22,6 +20,7 @@ class TCategoryTab extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
+
               ///Brands
               const TBrandShowcase(
                 images: [
@@ -31,11 +30,14 @@ class TCategoryTab extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
+
               ///Products
-              const TSectionHeading(title: 'You might like',showActionButton: true),
+              const TSectionHeading(
+                  title: 'You might like', showActionButton: true),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              TGridLayout(itemCount: 4, itemBuilder: (_,index) => const TProductCardVertical()),
+              TGridLayout(itemCount: 4,
+                  itemBuilder: (_, index) => const TProductCardVertical()),
               const SizedBox(height: TSizes.spaceBtwSections),
             ],
           ),
