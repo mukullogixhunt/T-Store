@@ -7,7 +7,6 @@ import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/app_bar/app_bar.dart';
-import '../../../../utils/constants/colors.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
