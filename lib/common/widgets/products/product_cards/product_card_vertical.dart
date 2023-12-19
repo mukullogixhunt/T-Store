@@ -29,6 +29,7 @@ class TProductCardVertical extends StatelessWidget {
             borderRadius: BorderRadius.circular(TSizes.productImageRadius),
             color: dark ? TColors.darkerGrey : TColors.white),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Thumbnail , Wishlist Button , Discount Tag
             TRoundedContainer(
@@ -61,7 +62,7 @@ class TProductCardVertical extends StatelessWidget {
                     ),
                   ),
 
-                  ///Sale Tag
+                  ///Favourite Icon
                   const Positioned(
                       top: 0,
                       right: 0,
@@ -74,13 +75,16 @@ class TProductCardVertical extends StatelessWidget {
 
             /// -- Details
             const Padding(padding: EdgeInsets.only(left: TSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TProductTitleText(title: 'Green Nike Air Shoes sd sd sd ad sd',smallSize: true),
-                  SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleTextWithVerifiedIcon(title: 'Nike')
-                ],),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TProductTitleText(title: 'Green Nike Air Shoes ',smallSize: true),
+                    SizedBox(height: TSizes.spaceBtwItems / 2),
+                    TBrandTitleTextWithVerifiedIcon(title: 'Nike')
+                  ],),
+              ),
             ),
 
             const Spacer(),

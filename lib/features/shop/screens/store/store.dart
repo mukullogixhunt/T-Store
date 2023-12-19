@@ -6,12 +6,10 @@ import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 import '../../../../common/widgets/brands/brand_card.dart';
-import '../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -29,7 +27,7 @@ class StoreScreen extends StatelessWidget {
                   'Store',
                   style: Theme.of(context).textTheme.headlineMedium,
                 )),
-            actions: [TCartCounterIcon(onPressed: () {})],
+            actions: [TCartCounterIcon(iconColor: THelperFunctions.isDarkMode(context) ? TColors.white : TColors.black,onPressed: () {})],
           ),
           body: NestedScrollView(
             headerSliverBuilder: (_, innerBoxIsScrollable) {
@@ -69,7 +67,7 @@ class StoreScreen extends StatelessWidget {
                             mainAxisExtent: 80,
                             itemBuilder: (_, index) {
                               return const TBrandCard(
-                                showBorder: false,
+                                showBorder: true,
                               );
                             }),
                       ],
@@ -79,21 +77,11 @@ class StoreScreen extends StatelessWidget {
                   ///Tabs
                   bottom: const TTabBar(
                     tabs: [
-                      Tab(
-                        child: Text('Sports'),
-                      ),
-                      Tab(
-                        child: Text('Furniture'),
-                      ),
-                      Tab(
-                        child: Text('Electronics'),
-                      ),
-                      Tab(
-                        child: Text('Clothes'),
-                      ),
-                      Tab(
-                        child: Text('Cosmetics'),
-                      ),
+                      Tab(child: Text('Sports')),
+                      Tab(child: Text('Furniture')),
+                      Tab(child: Text('Electronics')),
+                      Tab(child: Text('Clothes')),
+                      Tab(child: Text('Cosmetics')),
                     ],
                   ),
                 ),

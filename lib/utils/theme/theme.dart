@@ -8,6 +8,8 @@ import 'package:t_store/utils/theme/custom_themes/outlined_button_theme.dart';
 import 'package:t_store/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:t_store/utils/theme/custom_themes/text_theme.dart';
 
+import '../constants/colors.dart';
+
 class TAppTheme {
   TAppTheme._();
 
@@ -15,10 +17,10 @@ class TAppTheme {
       useMaterial3: true,
       fontFamily: 'Poppins',
       brightness: Brightness.light,
-      primaryColor: Colors.blue,
+      primaryColor: TColors.primary,
       textTheme: TTextTheme.lightTextTheme,
       chipTheme: TChipTheme.lightChipTheme,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: TColors.white,
       appBarTheme: TAppBarTheme.lightAppBarTheme,
       checkboxTheme: TCheckBoxTheme.lightCheckboxTheme,
       bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
@@ -30,10 +32,10 @@ class TAppTheme {
       useMaterial3: true,
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
-      primaryColor: Colors.blue,
+      primaryColor: TColors.primary,
       textTheme: TTextTheme.darkTextTheme,
       chipTheme: TChipTheme.darkChipTheme,
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: TColors.black,
       appBarTheme: TAppBarTheme.darkAppBarTheme,
       checkboxTheme: TCheckBoxTheme.darkCheckboxTheme,
       bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,

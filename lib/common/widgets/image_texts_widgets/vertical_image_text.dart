@@ -10,7 +10,7 @@ class TVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = TColors.white,
-    this.backgroundColor = TColors.white,
+    this.backgroundColor,
     this.onTap,
   });
 
@@ -51,6 +51,7 @@ class TVerticalImageText extends StatelessWidget {
                 width: 55,
                 child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium!
