@@ -53,7 +53,7 @@ class TSingleAddress extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis),
               const SizedBox(height: TSizes.sm/2),
-              Text('82356 Timmy Coves, South Liana, Maine, 87665 ,USA',softWrap: true),
+              const Text('82356 Timmy Coves, South Liana, Maine, 87665 ,USA',softWrap: true),
             ],
           )
         ],

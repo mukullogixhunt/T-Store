@@ -26,6 +26,8 @@ class TCircularIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         color: backgroundColor != null
             ? backgroundColor!
