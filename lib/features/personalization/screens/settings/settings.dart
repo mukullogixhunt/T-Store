@@ -7,6 +7,7 @@ import 'package:t_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/shop/screens/orders/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -70,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
                       subTitle: 'In-Progress and Completed Orders',
-                      onTap: () {}),
+                      onTap: () => Get.to(()=> const OrderScreen())),
                   TSettingsMenuTile(
                       icon: Iconsax.bank,
                       title: 'Bank Account',

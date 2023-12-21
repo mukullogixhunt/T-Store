@@ -102,6 +102,8 @@ class TProductCardVertical extends StatelessWidget {
                     isLarge: false,
                   ),
                 ),
+
+                ///Add to Cart
                 Container(
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
