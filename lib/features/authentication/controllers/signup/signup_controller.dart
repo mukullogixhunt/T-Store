@@ -25,6 +25,7 @@ class SignupController extends GetxController{
   final password = TextEditingController(); //Controller for password input
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
+
   ///Signup
   void signUp() async{
     try{
@@ -33,11 +34,17 @@ class SignupController extends GetxController{
 
       //Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if(!isConnected) return;
+      if(!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
 
       // Form Validation
-      if(signupFormKey.currentState!.validate()) return;
+      if(!signupFormKey.currentState!.validate()) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       //Privacy Policy Check
       if(!privacyPolicy.value){
@@ -69,7 +76,7 @@ class SignupController extends GetxController{
       TLoaders.successSnackBar(title: 'Congratulations',message: 'Your account has been created! Verify email to continue.');
 
       //Move to Verify Email Screen
-      Get.to(()=> const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
 
 
     }catch(e){
@@ -79,10 +86,7 @@ class SignupController extends GetxController{
       //Show some generic Error to the User
       TLoaders.errorSnackBar(title: 'Oh Snap!',message: e.toString());
 
-    }/*finally{
-      //Remove Loader
-      TFullScreenLoader.stopLoading();
-    }*/
+    }
   }
 
 }
