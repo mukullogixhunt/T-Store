@@ -5,6 +5,7 @@ import 'package:t_store/common/widgets/app_bar/app_bar.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/data/repositories/banners/banner_repository.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/shop/screens/orders/order.dart';
@@ -12,6 +13,7 @@ import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_title.dart';
+import '../../../../data/dummy/dummy.dart';
 import '../../../../data/repositories/authentication/authentication_repository.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -106,6 +108,8 @@ class SettingsScreen extends StatelessWidget {
                       title: 'Load Data',
                       subTitle: 'Upload Data to your Cloud Firebase',
                       onTap: () {}),
+                   // onTap: () => CategoryRepository.instance.uploadDummyData(TDummyData.categories)),
+                   // onTap: () => BannerRepository.instance.uploadDummyData(TDummyData.banners)),
                   TSettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geo Location',

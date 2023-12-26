@@ -52,11 +52,12 @@ class HomeScreen extends StatelessWidget {
 
                         ///Categories
                         THomeCategories(),
-
                       ],
                     ),
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections,),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
                 ],
               ),
             ),
@@ -67,26 +68,19 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Slider
-                  const TPromoSlider(
-                    banners: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3
-                    ],
-                  ),
+                  const TPromoSlider(),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   ///Products Heading
-                  TSectionHeading(title: 'Popular Products', onPressed: () => Get.to(()=>const AllProductsScreen())),
+                  TSectionHeading(
+                      title: 'Popular Products',
+                      onPressed: () => Get.to(() => const AllProductsScreen())),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   ///Popular Products
                   TGridLayout(
                       itemCount: 2,
                       itemBuilder: (_, index) => const TProductCardVertical()),
-
-
-
                 ],
               ),
             ),
