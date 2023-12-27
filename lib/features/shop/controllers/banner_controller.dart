@@ -43,7 +43,7 @@ class BannerController extends GetxController {
 
 
     } catch (e) {
-      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
       //Remove Loader
       isLoading.value = false;

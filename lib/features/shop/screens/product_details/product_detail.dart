@@ -11,9 +11,12 @@ import 'package:t_store/features/shop/screens/product_details/widgets/rating_sha
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
-class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+import '../../models/product_model.dart';
 
+class ProductDetailScreen extends StatelessWidget {
+  const ProductDetailScreen({super.key, required this.product});
+
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
