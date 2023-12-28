@@ -9,6 +9,7 @@ import 'package:t_store/features/shop/screens/product_details/widgets/product_de
 import 'package:t_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:t_store/utils/constants/enums.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 import '../../models/product_model.dart';
@@ -17,6 +18,7 @@ class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.product});
 
   final ProductModel product;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             ///ProductImageSlider
-            const TProductImageSlider(),
+            TProductImageSlider(product: product),
 
             ///Product Details
             Padding(
@@ -39,11 +41,11 @@ class ProductDetailScreen extends StatelessWidget {
                   const TRatingAndShare(),
 
                   ///Price , Title , Stock, &  Brand
-                  const TProductMetaData(),
+                  TProductMetaData(product: product),
 
                   ///Attributes
-                  const TProductAttributes(),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  if(product.productType == ProductType.variable.toString())  TProductAttributes(product: product),
+                  if(product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections),
 
                   ///Checkout Button
                   SizedBox(
@@ -56,8 +58,8 @@ class ProductDetailScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'Description', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const ReadMoreText(
-                    'This is a Product Description for Blue Nike Sleeve less vest. There are more things that can be added but i am going to fetch this data from backernd when we wwill implemenet fire base this is curently dummy full description , I am writing all these beacuse i want to show a long text in full description ',
+                   ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
@@ -74,8 +76,12 @@ class ProductDetailScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const TSectionHeading(title: 'Reviews(199)', showActionButton: false),
-                      IconButton(icon: const Icon(Iconsax.arrow_right_3,size: 18),onPressed : () => Get.to(() => const ProductReviewScreen())),
+                      const TSectionHeading(
+                          title: 'Reviews(199)', showActionButton: false),
+                      IconButton(
+                          icon: const Icon(Iconsax.arrow_right_3, size: 18),
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewScreen())),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
