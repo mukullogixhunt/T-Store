@@ -7,7 +7,6 @@ import 'package:t_store/features/shop/models/product_model.dart';
 
 import '../../../utils/exceptions/firebase_exceptions.dart';
 import '../../../utils/exceptions/platform_exceptions.dart';
-import '../../services/FirebaseStorageService/firebase_storage_service.dart';
 
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
@@ -17,11 +16,43 @@ class ProductRepository extends GetxController {
 
 
   ///Get all Featured Products
+  Future<List<ProductModel>> getAllFeaturedProducts() async {
+    try{
+      final snapshot = await _db.collection('Products').where('IsFeature', isEqualTo: true).get();
+      final list = snapshot.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
+      return list;
+    }on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    }on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
+  ///Get limited Featured Products
   Future<List<ProductModel>> getFeaturedProducts() async {
     try{
       final snapshot = await _db.collection('Products').where('IsFeature', isEqualTo: true).limit(4).get();
       final list = snapshot.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
       return list;
+    }on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    }on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
+  ///Get product based on brands
+  Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
+    try{
+      final querySnapshot = await query.get();
+      final List<ProductModel> productList = querySnapshot.docs.map((doc) => ProductModel.fromQuerySnapshot(doc)).toList();
+      return productList;
     }on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     }on PlatformException catch (e) {
